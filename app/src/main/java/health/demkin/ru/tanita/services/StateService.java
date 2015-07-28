@@ -2,13 +2,16 @@ package health.demkin.ru.tanita.services;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
 import health.demkin.ru.tanita.models.TanitaState;
+import health.demkin.ru.tanita.utils.SqLiteDate;
 
 /**
  * Created by evgen1000end on 07.03.2015.
@@ -24,32 +27,22 @@ public class StateService extends  SourceService {
 
         List<TanitaState> stateList = new ArrayList<>();
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-
-
         if (c.getCount()==0) return stateList;
 
 
-        String d;
         try{
         while (!c.isLast()){
 
-
-            d = dateFormat.parse(c.getString(10));
-
-            stateList.add(new TanitaState(c.getInt(0), c.getFloat(1),c.getFloat(2), d ));
-
+            stateList.add(new TanitaState(c.getInt(0), c.getFloat(1),c.getFloat(2), SqLiteDate.StrToDateTime(c.getString(10))));
             c.moveToNext();
         }
-
-
             c.moveToLast();
-            stateList.add(new TanitaState(c.getInt(0), c.getFloat(1), c.getFloat(2), dateFormat.parse(c.getString(10))));
+            stateList.add(new TanitaState(c.getInt(0), c.getFloat(1), c.getFloat(2),SqLiteDate.StrToDateTime(c.getString(10))));
         }
 
         catch (Exception e)
         {
-
+            Toast.makeText(context, "Ошибка получения списка взвешиваний " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
         return stateList;
@@ -71,18 +64,12 @@ public class StateService extends  SourceService {
 
     public int addState(TanitaState tanitaState){
 
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-
-
-        String dateMeasure = "\""+dateFormat.format(tanitaState.getMeasureTime())+"\"";
-
         String script = String.format
         ("Insert into progress (weight, fat, user_id, inner_age, muscul, body_type,calorie_need,fat_v, bone, water,measure_time )" +
                         " values (%f, %f, %d, %d, %f, %d, %d, %f, %f, %f,%s)",tanitaState.getWeight(),
                 tanitaState.getFat(), tanitaState.getUserID(), tanitaState.getInnerAge(),tanitaState.getMuscul(),
                 tanitaState.getBodyType(), tanitaState.getCalorieNeed(), tanitaState.getFatV(), tanitaState.getBone(),
-                tanitaState.getWater(), dateMeasure ) ;
+                tanitaState.getWater(), SqLiteDate.DateTimeToStr(tanitaState.getMeasureTime()) ) ;
 
         exec(script);
 
