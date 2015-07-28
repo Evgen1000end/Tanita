@@ -92,9 +92,19 @@ public class WeightListFragment extends ListFragment {
 
             TextView titleDate =(TextView)convertView.findViewById(R.id.weight_title_date);
 
-            String dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(c.getMeasureTime());
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"); //.format(c.getMeasureTime());
+            Date date = c.getMeasureTime();
 
-            titleDate.setText("Дата взвешивания: "+dateFormat);
+            String measureDate;
+
+            if (date==null)
+            {
+                measureDate = "No date";
+            }else {
+                measureDate = dateFormat.format(date);
+            }
+
+            titleDate.setText("Дата взвешивания: "+measureDate);
 
             return convertView;
         }

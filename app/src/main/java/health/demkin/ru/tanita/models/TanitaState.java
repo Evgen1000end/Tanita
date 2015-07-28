@@ -51,11 +51,11 @@ public class TanitaState {
         this.water = water;
     }
 
-    public TanitaState(int id, float weight, float fat){
+    public TanitaState(int id, float weight, float fat, Date measureTime){
         this.weight = weight;
         this.fat = fat;
         this.id = id;
-      //  this.measureTime = measureTime;
+        this.measureTime = measureTime;
     }
 
     public float getWeight() {
