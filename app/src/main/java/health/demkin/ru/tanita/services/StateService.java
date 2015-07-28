@@ -54,7 +54,6 @@ public class StateService extends  SourceService {
 
     public int addState(TanitaState tanitaState){
 
-        //Генерация SQL по экземпляру класса
         String script = String.format
         ("Insert into progress (weight, fat, user_id, inner_age, muscul, body_type,calorie_need,fat_v, bone, water,measure_time )" +
                         " values (%f, %f, %d, %d, %f, %d, %d, %f, %f, %f,%f)",tanitaState.getWeight(),
@@ -65,8 +64,9 @@ public class StateService extends  SourceService {
 
         exec(script);
 
-        return 0;
 
+        //todo - возвращать ID добавленной записи
+        return 0;
     }
 
     public int deleteStateById(int id){

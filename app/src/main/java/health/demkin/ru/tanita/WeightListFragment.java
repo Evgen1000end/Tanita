@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -88,6 +89,12 @@ public class WeightListFragment extends ListFragment {
             TextView titleTextView2 =
                     (TextView)convertView.findViewById(R.id.weight_title_in_list2);
             titleTextView2.setText("Жир:  "+Double.toString(c.getFat()));
+
+            TextView titleDate =(TextView)convertView.findViewById(R.id.weight_title_date);
+
+            String dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(c.getMeasureTime());
+
+            titleDate.setText("Дата взвешивания: "+dateFormat);
 
             return convertView;
         }
