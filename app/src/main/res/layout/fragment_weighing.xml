@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Вес"
+    style="?android:listSeparatorTextViewStyle"
+    />
+    <EditText android:id="@+id/weight_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите вес"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Жир"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/fat_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите жир"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Мышцы"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/muskul_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите мышцы"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Тип теслосложения"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/bodyType_title4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите тип телосложения"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Возраст"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/age_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите возраст"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Кости"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/bone_title6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите кости"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Калории"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/calorie_title7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите калории"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Весциральный жир"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/fatv_title8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите Весциральный жир"
+        android:inputType="numberDecimal"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Вода"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <EditText android:id="@+id/water_title8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Введите воду"
+        android:inputType="numberDecimal"
+        />
+
+    <Button android:id="@+id/button_apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:hint="Применить"
+        />
+</LinearLayout>
+</ScrollView>
