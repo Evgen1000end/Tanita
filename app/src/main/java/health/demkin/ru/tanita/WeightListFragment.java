@@ -45,11 +45,8 @@ public class WeightListFragment extends ListFragment {
         StateService service = new StateService(getActivity().getApplicationContext());
         List<TanitaState>  stateList = service.findAllStates();
 
-       // stateList.add(new TanitaState(1,1,1,1,1,1,1,1,1,1, new Date()));
         StateAdapter adapter = new StateAdapter(stateList);
         setListAdapter(adapter);
-
-
     }
 
     @Override

@@ -39,12 +39,10 @@ public class StateService extends  SourceService {
 
     }
 
-
     public void delete(int id){
         String script = String.format("delete from progress where id =%d", id);
         exec(script);
     }
-
 
     public List<TanitaState> findStatesForDays(int days){
         return null;
@@ -68,8 +66,6 @@ public class StateService extends  SourceService {
         exec(script);
 
         return 0;
-
-
 
     }
 

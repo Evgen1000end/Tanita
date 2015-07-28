@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Date;
+
 import health.demkin.ru.tanita.models.TanitaState;
 import health.demkin.ru.tanita.services.StateService;
 
@@ -77,6 +79,8 @@ public class WeughtInputFragment extends Fragment {
             ts.setFatV(Float.parseFloat(etFatV.getText().toString()));
             ts.setMuscul(Float.parseFloat(etMuscul.getText().toString()));
             ts.setInnerAge(Integer.parseInt(etInnerAge.getText().toString()));
+            ts.setMeasureTime(new Date());
+
             ts.setUserID(1);
 
             service.addState(ts);

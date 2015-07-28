@@ -28,10 +28,6 @@ public class NotificationService extends Service {
         return super.onStartCommand(intent, flags, startId);
     }
 
-
-
-
-
     @Override
     public IBinder onBind(Intent intent) {
         Log.d(LOG_TAG, "onBind");
@@ -53,6 +49,5 @@ public class NotificationService extends Service {
             }
         }).start();
     }
-
 
 }

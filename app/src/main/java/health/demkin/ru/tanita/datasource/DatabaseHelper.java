@@ -14,8 +14,7 @@ import android.util.Log;
 
 public class DatabaseHelper extends SQLiteOpenHelper
 {
-    private static String TAG = "DatabaseHelper"; // Tag just for the LogCat window
-    //destination path (location) of our database on device
+    private static String TAG = "DatabaseHelper";
     private static String DB_PATH = "";
     private static String DB_NAME ="tanita.db";// Database name
     private SQLiteDatabase mDataBase;
@@ -23,7 +22,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public DatabaseHelper(Context context)
     {
-        super(context, DB_NAME, null, 4);// 1? its Database Version
+        super(context, DB_NAME, null, 4);// this DB version
         if(android.os.Build.VERSION.SDK_INT >= 17){
             DB_PATH = context.getApplicationInfo().dataDir + "/databases/";
         }
@@ -37,7 +36,6 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public void createDataBase() throws IOException
     {
-        //If database not exists copy it from the assets
 
         boolean mDataBaseExist = checkDataBase();
         if(!mDataBaseExist)
@@ -46,9 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
             this.close();
             try
             {
-                //Copy the database from assests
                 copyDataBase();
-                Log.e(TAG, "createDatabase database created");
             }
             catch (IOException mIOException)
             {
@@ -56,11 +52,10 @@ public class DatabaseHelper extends SQLiteOpenHelper
             }
         }
     }
-    //Check that the database exists here: /data/data/your package/databases/Da Name
+
     private boolean checkDataBase()
     {
         File dbFile = new File(DB_PATH + DB_NAME);
-        //Log.v("dbFile", dbFile + "   "+ dbFile.exists());
         return dbFile.exists();
     }
 
