@@ -9,15 +9,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import java.util.Date;
-
 import health.demkin.ru.tanita.models.TanitaState;
 import health.demkin.ru.tanita.services.StateService;
 
-/**
- * Created by evgen1000end on 07.03.2015.
- */
+
 public class WeughtInputFragment extends Fragment {
 
     private Button button;
@@ -80,25 +76,18 @@ public class WeughtInputFragment extends Fragment {
             ts.setMuscul(Float.parseFloat(etMuscul.getText().toString()));
             ts.setInnerAge(Integer.parseInt(etInnerAge.getText().toString()));
             ts.setMeasureTime(new Date());
-
             ts.setUserID(1);
 
             service.addState(ts);
 
-
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, WeightListFragment.newInstance(1 + 1))
-                    .commit();
+            fragmentManager.beginTransaction().replace(R.id.container, WeightListFragment.newInstance(1 + 1)).commit();
         }
         catch (Exception e)
         {
             Toast.makeText(getActivity(),"Ошибка ввода. Причина: "+e.getMessage(), Toast.LENGTH_LONG).show();
         }
 
-
     }
-
 
 }

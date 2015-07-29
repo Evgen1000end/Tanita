@@ -86,4 +86,16 @@ public class StateService extends  SourceService {
         return 0;
     }
 
+    public Date getLastMeasureDate(){
+        Cursor c = getDataSet("Select max(measure_time) from progress");
+
+        if (c.getCount()==0)
+            return null;
+
+
+        return  SqLiteDate.StrToDateTime(c.getString(0));
+
+    }
+
+
 }
