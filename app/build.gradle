@@ -21,7 +21,7 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:support-v4:22.2.1'
     compile 'com.github.PhilJay:MPAndroidChart:v2.0.7'
     compile 'joda-time:joda-time:2.8.1'
 }
