@@ -1,12 +1,11 @@
 package health.demkin.ru.tanita.utils;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
-/**
- * Created by evgen1000end on 28.07.2015.
- */
+import java.text.SimpleDateFormat;
+
 public class SqLiteDate {
 
     private final static String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
@@ -20,13 +19,15 @@ public class SqLiteDate {
         SqLiteDate.pattern = pattern;
     }
 
-    public static Date StrToDateTime(String fromSQLite){
-        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern, Locale.getDefault());
+    public static DateTime StrToDateTime(String fromSQLite){
+
+        DateTimeFormatter dateFormat = DateTimeFormat.forPattern(pattern);
+
 
         if (fromSQLite!=null){
 
            try {
-               return dateFormat.parse(fromSQLite);
+               return dateFormat.parseDateTime(fromSQLite);
            }
            catch (Exception e){
                return null;
@@ -38,8 +39,8 @@ public class SqLiteDate {
         }
     }
 
-    public static String DateTimeToStr(Date fromSource){
-        SimpleDateFormat dateFormat = new SimpleDateFormat(pattern, Locale.getDefault());
-        return "\""+dateFormat.format(fromSource)+"\"";
+    public static String DateTimeToStr(DateTime fromSource){
+        DateTimeFormatter dateFormat = DateTimeFormat.forPattern(pattern);
+        return "\""+dateFormat.print(fromSource)+"\"";
     }
 }

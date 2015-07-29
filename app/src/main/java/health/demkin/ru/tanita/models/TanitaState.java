@@ -1,5 +1,7 @@
 package health.demkin.ru.tanita.models;
 
+import org.joda.time.DateTime;
+
 import java.util.Date;
 
 /**
@@ -27,7 +29,7 @@ public class TanitaState {
         this.water = water;
     }
 
-    private Date measureTime;
+    private DateTime measureTime;
 
     public TanitaState(){
 
@@ -36,7 +38,7 @@ public class TanitaState {
 
     public TanitaState(float weight, float fat, float muscul, int id,
                        int innerAge, int bodyType, int calorieNeed, float fatV,
-                       float bone, int userID, Date measureTime, float water) {
+                       float bone, int userID, DateTime measureTime, float water) {
         this.weight = weight;
         this.fat = fat;
         this.muscul = muscul;
@@ -51,7 +53,7 @@ public class TanitaState {
         this.water = water;
     }
 
-    public TanitaState(int id, float weight, float fat, Date measureTime){
+    public TanitaState(int id, float weight, float fat, DateTime measureTime){
         this.weight = weight;
         this.fat = fat;
         this.id = id;
@@ -138,11 +140,11 @@ public class TanitaState {
         this.userID = userID;
     }
 
-    public Date getMeasureTime() {
+    public DateTime getMeasureTime() {
         return measureTime;
     }
 
-    public void setMeasureTime(Date measureTime) {
+    public void setMeasureTime(DateTime measureTime) {
         this.measureTime = measureTime;
     }
 }

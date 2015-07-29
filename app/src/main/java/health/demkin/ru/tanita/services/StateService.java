@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.widget.Toast;
 
+import org.joda.time.DateTime;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -86,7 +88,7 @@ public class StateService extends  SourceService {
         return 0;
     }
 
-    public Date getLastMeasureDate(){
+    public DateTime getLastMeasureDate(){
         Cursor c = getDataSet("Select max(measure_time) from progress");
 
         if (c.getCount()==0)

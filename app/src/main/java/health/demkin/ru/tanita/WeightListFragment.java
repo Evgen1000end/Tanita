@@ -14,6 +14,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -92,8 +96,8 @@ public class WeightListFragment extends ListFragment {
 
             TextView titleDate =(TextView)convertView.findViewById(R.id.weight_title_date);
 
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"); //.format(c.getMeasureTime());
-            Date date = c.getMeasureTime();
+            DateTimeFormatter dateFormat = DateTimeFormat.fullDateTime();
+            DateTime date = c.getMeasureTime();
 
             String measureDate;
 
@@ -101,7 +105,7 @@ public class WeightListFragment extends ListFragment {
             {
                 measureDate = "No date";
             }else {
-                measureDate = dateFormat.format(date);
+                measureDate = dateFormat.print(date);
             }
 
             titleDate.setText("Дата взвешивания: "+measureDate);
