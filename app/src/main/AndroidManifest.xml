@@ -21,6 +21,12 @@
 
         <service android:name=".NotificationService" >
         </service>
+
+        <receiver
+            android:name=".background.TaskReceiver"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
     </application>
 
 </manifest>

@@ -67,7 +67,7 @@ public class MsgNotificaton {
 
                         // Set required fields, including the small icon, the
                         // notification title, and text.
-                .setSmallIcon(R.drawable.ic_stat_msg_notificaton)
+                .setSmallIcon(R.drawable.ic_drawer) //ic_stat_msg_notificaton
                 .setContentTitle(title)
                 .setContentText(text)
 

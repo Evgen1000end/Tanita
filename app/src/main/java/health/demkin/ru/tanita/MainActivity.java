@@ -3,6 +3,10 @@ package health.demkin.ru.tanita;
 import android.app.Activity;
 
 import android.app.ActionBar;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +21,8 @@ import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Toast;
 
+import health.demkin.ru.tanita.background.AlarmLauncher;
+import health.demkin.ru.tanita.background.TaskReceiver;
 import health.demkin.ru.tanita.datasource.TestAdapter;
 
 
@@ -25,7 +31,7 @@ public class MainActivity extends FragmentActivity
 
     private Boolean exit = false;
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
+    private PendingIntent pendingIntent;
     private CharSequence mTitle;
 
     @Override
@@ -42,6 +48,19 @@ public class MainActivity extends FragmentActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
+
+       // AlarmLauncher alarmLauncher = new AlarmLauncher(this);
+        //alarmLauncher.start();
+
+        Intent alarmIntent = new Intent(MainActivity.this, TaskReceiver.class);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, alarmIntent, 0);
+        AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        int interval = 10000;
+
+        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+       // Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
+
+        //setInexactRepeating
     }
 
 

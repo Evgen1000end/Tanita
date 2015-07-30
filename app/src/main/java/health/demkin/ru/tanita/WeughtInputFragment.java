@@ -13,6 +13,8 @@ import android.widget.Toast;
 import org.joda.time.DateTime;
 
 import java.util.Date;
+
+import health.demkin.ru.tanita.background.MsgNotificaton;
 import health.demkin.ru.tanita.models.TanitaState;
 import health.demkin.ru.tanita.services.StateService;
 
@@ -82,6 +84,8 @@ public class WeughtInputFragment extends Fragment {
             ts.setUserID(1);
 
             service.addState(ts);
+
+           // MsgNotificaton.notify(getActivity().getApplicationContext(),"Hello, Notifi!",2);
 
             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.container, WeightListFragment.newInstance(1 + 1)).commit();
