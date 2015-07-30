@@ -54,8 +54,8 @@ public class MsgNotificaton {
 
 
         final String ticker = exampleString;
-        final String title = res.getString(
-                R.string.msg_notificaton_notification_title_template, exampleString);
+        final String title = "";// res.getString(
+                //R.string.msg_notificaton_notification_title_template, exampleString);
         final String text = res.getString(
                 R.string.msg_notificaton_notification_placeholder_text_template, exampleString);
 

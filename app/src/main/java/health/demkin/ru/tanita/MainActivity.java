@@ -57,7 +57,7 @@ public class MainActivity extends FragmentActivity
         AlarmManager manager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         int interval = 10000;
 
-        manager.setInexactRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), interval, pendingIntent);
        // Toast.makeText(this, "Alarm Set", Toast.LENGTH_SHORT).show();
 
         //setInexactRepeating
